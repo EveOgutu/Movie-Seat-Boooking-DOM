@@ -1,25 +1,19 @@
 const container = document.querySelector('.container');
-const seats = document.querySelectorAll('.row.seat:not(.occupied)');
-const count = document.getElementById('.count');
+const seats = document.querySelectorAll('.row .seat:not(.occupied)');
+const count = document.getElementById('count');
 const total = document.getElementById('total');
 const movieSelect = document.getElementById('movie');
 
-let ticketPrice = +movieSelect.value;
-
-//Save selected movie index and price
-function setMovieData(movieIndex, moviePrice) {
-    localStorage.setItem('selectedMovieIndex', movieIndex);
-    localStorage.setItem('selectedMoviePrice', moviePrice);
-}
+let ticketPrice = 20
 
 //update total and count
 function updateSelectedCount() {
     const selectedSeats = document.querySelectorAll('.row .seat.selected');
 
-    const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat)
+    const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat)
     );
 
-    localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
+    console.log(seatsIndex);
 
     const selectedSeatsCount = selectedSeats.length;
     
